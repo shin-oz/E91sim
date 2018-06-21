@@ -16,35 +16,33 @@ class Mes:
       '45',
       '22.5',
     ]
-    theta = np.deg2rad(theta_list[ran_theta_list[random.randint(0,2)]])
-    print('mesurement angle',theta_list[ran_theta_list[random.randint(0,2)]])
+    ran_theta = random.randint(0,2)
+    theta = np.deg2rad(theta_list[ran_theta_list[ran_theta]])
+    print('theta', theta)
+    print('mesurement angle', theta_list[ran_theta_list[ran_theta]])
 
     # Z rotation operator
-    # R = np.matrix([
-    #   [-1j*theta/2, 0],
-    #   [0, 1j*theta/2]
-    # ])
     R = np.matrix([
-      [-1j*theta/2, 0],
-      [0, 1j*theta/2]
+      [np.exp(-1j*theta/2), 0],
+      [0, np.exp(1j*theta/2)]
     ])
-    print('rotate_operator',R)
+    print('rotate_operator', R)
 
     # musurement operator
     mes_Z = np.matrix([
       [1, 0],
       [0, -1]
     ])
-    print('measurement operator',mes_Z)
+    # print('measurement operator',mes_Z)
 
     mes =  np.dot(mes_Z, R)
-    print('mes_Z dot R',mes)
+    # print('mes_Z dot R',mes)
     mes = np.kron(mes, np.eye(2))
-    print('mesuere', mes)
+    # print('mesuere', mes)
     # ここが違う…
     q_quality = np.dot(mes, dm)
-    print(dm)
-    print(q_quality)
+    # print(dm)
+    # print(q_quality)
 
   def bob_measurement(self):
     print("I'm bob")
