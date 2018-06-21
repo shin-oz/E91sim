@@ -32,7 +32,7 @@ class Dm:
       'Psi_plus',
       'Psi_minus'
     ]
-    index = random.sample(range(n_of_bell), n_of_bell)#抽出する添字を取得
+    index = random.sample(range(n_of_bell), n_of_bell)
     q_states = []
     for i in index:
       print('selected ballpair: ', index_bellpairs[i])
