@@ -6,10 +6,6 @@ import sys
 
 class Mes:
   def ali_measurement(self,dm):
-    # print('測定するよ',dm)
-    # 基本的には0,45,90
-    # ブロッホ級で考えていると、=>>rdvに相談
-    # 半分にして相関を求めれば確実！
     theta_list = {
       '0': 0,
       '45': 45, 
@@ -32,7 +28,6 @@ class Mes:
       [-1j*theta/2, 0],
       [0, 1j*theta/2]
     ])
-    # # print('R:')
     print('rotate_operator',R)
 
     # musurement operator
@@ -40,7 +35,6 @@ class Mes:
       [1, 0],
       [0, -1]
     ])
-    # print('mes_Z:')
     print('measurement operator',mes_Z)
 
     mes =  np.dot(mes_Z, R)
